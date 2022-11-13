@@ -6,7 +6,7 @@
 /*   By: tgoel <tgoel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 02:22:36 by tgoel             #+#    #+#             */
-/*   Updated: 2022/11/13 20:33:33 by tgoel            ###   ########.fr       */
+/*   Updated: 2022/11/13 23:40:48 by tgoel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,32 @@ int	get_size_push(t_all *all, int min)
 	return (x);
 }
 
+void	check_rr(t_all *all, int min)
+{
+	if (all->stack_a->nb[0] > min)
+		rr(all);
+	else
+		rb(all, 1);
+}
+
 void	p_and_r_number(t_all *all, int nb)
 {
 	int	i;
-	int	len;
 	int	min;
 	int	mid;
 
 	i = 0;
 	min = get_max_min(all, get_min(all->stack_a), nb);
 	mid = get_max_min(all, get_min(all->stack_a), nb / 2);
-	len = all->to_sort;
-	while (i < len)
+	while (i < all->stack_a->current_size)
 	{
 		if (all->stack_a->nb[0] <= min)
 		{
 			pb(all);
 			if (all->stack_b->nb[0] < mid)
-				rb(all, 1);
+				check_rr(all, min);
 		}
-		else
+		if (all->stack_a->nb[0] > min)
 			ra(all, 1);
 		i++;
 	}

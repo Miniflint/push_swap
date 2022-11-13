@@ -6,7 +6,7 @@
 /*   By: tgoel <tgoel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 08:30:49 by tgoel             #+#    #+#             */
-/*   Updated: 2022/07/15 09:44:12 by tgoel            ###   ########.fr       */
+/*   Updated: 2022/11/13 23:32:58 by tgoel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	get_min_max(t_all *all, int max, int len)
 	while (i < len - 1)
 	{
 		j = 0;
-		while (j < all->to_sort)
+		while (j < all->stack_a->current_size)
 		{
 			if (all->stack_a->nb[j] > tmp && all->stack_a->nb[j] < max)
 				tmp = all->stack_a->nb[j];

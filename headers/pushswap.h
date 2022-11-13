@@ -6,7 +6,7 @@
 /*   By: tgoel <tgoel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 19:23:34 by tgoel             #+#    #+#             */
-/*   Updated: 2022/07/16 11:31:16 by tgoel            ###   ########.fr       */
+/*   Updated: 2022/11/13 23:40:10 by tgoel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "pushstruct.h"
+
+# define FORMULA(x) (x / 5) + 54
 
 /* Sorting */
 void	three_numbers(t_all *all);
