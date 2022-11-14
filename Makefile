@@ -34,14 +34,14 @@ PSH		= $(addprefix $(PSDIR)/,$(PSSRCS))
 
 FILES	= $(OSSRCS) $(SRSRCS) $(OUSRCS) $(SWA) $(ROT) $(RRT) $(PSH)
 OBJS	= $(FILES:.c=.o)
-CFLAGS	= -Wall -Werror -Wextra -fsanitize=address -g3
+CFLAGS	= -Wall -Werror -Wextra
 ifeq ($(DEBUG), debug)
 	CFLAGS +=  -fsanitize=address -g3
 endif
 NAME	= push_swap
 CC		= gcc $(CFLAGS)
 
-all: $(NAME) bonusall
+all: $(NAME) 
 
 $(NAME): $(OBJS)
 	@echo "$(GREEN)\n\nCompiling push_swap..."
@@ -77,4 +77,11 @@ bonusre:
 
 bonusall: re
 	make re -C bonus
-.PHONY:	clean fclean all build prune re bonus
+
+bonusclean:
+	make clean -C bonus
+
+bonusfclean:
+	make fclean -C bonus
+
+.PHONY:	clean fclean all build prune re bonus bonusre bonusall bonusclean bonusfclean
