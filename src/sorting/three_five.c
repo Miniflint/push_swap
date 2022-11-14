@@ -6,7 +6,7 @@
 /*   By: tgoel <tgoel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:01 by tgoel             #+#    #+#             */
-/*   Updated: 2022/07/16 12:23:52 by tgoel            ###   ########.fr       */
+/*   Updated: 2022/11/14 01:05:45 by tgoel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,44 +46,56 @@ int	min_ind(t_all *all)
 	return (ret);
 }
 
-void	two_push(t_all *all)
-{
-	int	i;
-	int	min_i;
+// void	two_push(t_all *all)
+// {
+// 	int	i;
+// 	int	min_i;
 
-	while (all->stack_a->current_size - 3)
+// 	while (all->stack_a->current_size - 3)
+// 	{
+// 		i = 0;
+// 		min_i = min_ind(all);
+// 		if (min_i == -1)
+// 			handle_error("Error", all);
+// 		if (min_i == 1)
+// 			sa(all, 1);
+// 		else if (min_i > all->stack_a->current_size / 2)
+// 		{
+// 			while (i++ < all->stack_a->current_size - min_i)
+// 				rra(all, 1);
+// 		}
+// 		else
+// 			while (i++ < min_i)
+// 				ra(all, 1);
+// 		pb(all);
+// 	}
+// }
+
+void	push_min(t_all *all)
+{
+	int	min;
+	int	i;
+
+	min = get_min(all->stack_a);
+	i = 0;
+	while (i < all->stack_a->current_size)
 	{
-		i = 0;
-		min_i = min_ind(all);
-		if (min_i == -1)
-			handle_error("Error", all);
-		if (min_i == 1)
-			sa(all, 1);
-		else if (min_i > all->stack_a->current_size / 2)
+		if (all->stack_a->nb[0] == min)
 		{
-			while (i++ < all->stack_a->current_size - min_i)
-				rra(all, 1);
+			pb(all);
+			return ;
 		}
-		else
-			while (i++ < min_i)
-				ra(all, 1);
-		pb(all);
+		ra(all, 1);
+		i++;
 	}
 }
 
 void	sort_to_five(t_all *all, int nb)
 {
-	int	min;
-
-	while (nb > 3)
-	{
-		min = get_min(all->stack_a);
-		two_push(all);
-		nb--;
-	}
+	push_min(all);
+	if (nb == 5)
+		push_min(all);
 	three_numbers(all);
-	if (all->stack_b->nb[0] < all->stack_b->nb[1])
-		sa(all, 1);
 	pa(all);
 	pa(all);
 }

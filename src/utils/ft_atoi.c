@@ -6,7 +6,7 @@
 /*   By: tgoel <tgoel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 20:07:34 by tgoel             #+#    #+#             */
-/*   Updated: 2022/07/16 12:24:24 by tgoel            ###   ########.fr       */
+/*   Updated: 2022/11/14 01:05:17 by tgoel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_atoi(char *str, t_all *all)
 	{
 		if (str[x] == '-')
 			sign = -1;
+		if (!str[x + 1] || (str[x + 1] < '0' && str[x + 1] > '9'))
+			handle_error("Error", all);
 		x++;
 	}
 	while (str[x])

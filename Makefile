@@ -34,7 +34,7 @@ PSH		= $(addprefix $(PSDIR)/,$(PSSRCS))
 
 FILES	= $(OSSRCS) $(SRSRCS) $(OUSRCS) $(SWA) $(ROT) $(RRT) $(PSH)
 OBJS	= $(FILES:.c=.o)
-CFLAGS	= -Wall -Werror -Wextra 
+CFLAGS	= -Wall -Werror -Wextra -fsanitize=address -g3
 ifeq ($(DEBUG), debug)
 	CFLAGS +=  -fsanitize=address -g3
 endif
