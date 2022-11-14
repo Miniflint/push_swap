@@ -6,7 +6,7 @@
 /*   By: tgoel <tgoel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 19:23:34 by tgoel             #+#    #+#             */
-/*   Updated: 2022/11/14 02:37:34 by tgoel            ###   ########.fr       */
+/*   Updated: 2022/11/14 22:04:46 by tgoel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include "get_next_line/get_next_line.h"
 # include "pushstruct.h"
 
 /* Sorting */
@@ -36,6 +37,7 @@ int		check_order(t_all *all);
 
 /* utils */
 int		ft_strlen(char *str);
+int		read_all(t_all *all, int fd);
 int		ft_isdigit(char c);
 int		ft_atoi(char *str, t_all *all);
 void	ft_atoi_array(char *str, t_all *all);
@@ -44,6 +46,7 @@ void	print_stacks(t_all *all);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 int		bloc_count(const char *s, char c);
+int		ft_strcmp(char *s1, char *s2);
 
 /* basics instructions */
 	/* swap */

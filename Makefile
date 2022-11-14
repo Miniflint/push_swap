@@ -41,7 +41,7 @@ endif
 NAME	= push_swap
 CC		= gcc $(CFLAGS)
 
-all: $(NAME)
+all: $(NAME) bonusall
 
 $(NAME): $(OBJS)
 	@echo "$(GREEN)\n\nCompiling push_swap..."
@@ -69,4 +69,12 @@ build:
 prune:
 	docker system prune -a --volumes
 
-.PHONY:	clean fclean all re
+bonus:
+	make -C bonus
+
+bonusre:
+	make re -C bonus
+
+bonusall: re
+	make re -C bonus
+.PHONY:	clean fclean all build prune re bonus

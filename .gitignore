@@ -2,7 +2,7 @@
 push_swap
 visu.py
 
-/Checker
+Dockerfile
 
 # Prerequisites
 *.d
