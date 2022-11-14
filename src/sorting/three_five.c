@@ -6,7 +6,7 @@
 /*   By: tgoel <tgoel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:01 by tgoel             #+#    #+#             */
-/*   Updated: 2022/11/14 01:07:13 by tgoel            ###   ########.fr       */
+/*   Updated: 2022/11/14 01:36:01 by tgoel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	push_min(t_all *all)
 
 	min = get_min(all->stack_a);
 	i = 0;
-	while (1)
+	while (i < all->stack_a->current_size)
 	{
 		if (all->stack_a->nb[0] == min)
 		{

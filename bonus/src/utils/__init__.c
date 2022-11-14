@@ -6,11 +6,11 @@
 /*   By: tgoel <tgoel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 08:16:06 by tgoel             #+#    #+#             */
-/*   Updated: 2022/11/14 02:49:23 by tgoel            ###   ########.fr       */
+/*   Updated: 2022/11/14 02:53:47 by tgoel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/pushswap.h"
+#include "../../inc/pushswap.h"
 
 static void	__init__stack(t_all *all)
 {
@@ -33,8 +33,5 @@ void	__init__all(t_all *all, int size)
 	if (!all->stack_b)
 		handle_error("Error malloc", all);
 	all->max_size = size;
-	all->a_sorted = 0;
-	all->to_sort = all->max_size - all->a_sorted;
-	all->formula_sort = ((all->max_size) / 5) + 54;
 	__init__stack(all);
 }
