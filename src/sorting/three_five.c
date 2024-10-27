@@ -6,7 +6,7 @@
 /*   By: tgoel <tgoel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:01 by tgoel             #+#    #+#             */
-/*   Updated: 2024/10/27 18:49:28 by trgoel           ###   ########.fr       */
+/*   Updated: 2024/10/27 19:05:30 by trgoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	min_ind(t_all *all)
 void	push_min(t_all *all)
 {
 	int	min_i;
-	int min;
+	int	min;
 	int	i;
 
 	min_i = min_ind(all);
