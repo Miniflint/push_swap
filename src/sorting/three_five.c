@@ -6,7 +6,7 @@
 /*   By: tgoel <tgoel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:56:01 by tgoel             #+#    #+#             */
-/*   Updated: 2022/11/14 01:36:01 by tgoel            ###   ########.fr       */
+/*   Updated: 2024/10/27 18:49:28 by trgoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,24 @@ int	min_ind(t_all *all)
 
 void	push_min(t_all *all)
 {
-	int	min;
+	int	min_i;
+	int min;
 	int	i;
 
-	min = get_min(all->stack_a);
+	min_i = min_ind(all);
+	min = all->stack_a->nb[min_i];
 	i = 0;
-	while (i < all->stack_a->current_size)
+	while (all->stack_a->current_size > 3)
 	{
 		if (all->stack_a->nb[0] == min)
 		{
 			pb(all);
 			return ;
 		}
-		ra(all, 1);
-		i++;
+		if (min_i < all->stack_a->current_size / 2)
+			ra(all, 1);
+		else
+			rra(all, 1);
 	}
 }
 
